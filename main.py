@@ -9,12 +9,15 @@ from langchain_core.prompts import PromptTemplate
 
 from langchain_openai import ChatOpenAI
 from tavily import TavilyClient
+from langchain_tavily import TavilySearch
 
 load_dotenv()
 
 tavily = TavilyClient()
+tavilySearch = TavilySearch()
 
 
+# Replacing this with TavilySearch from langchain_tavily
 @tool
 def webSearch(query: str):
     """Search the web with the given query and return the raw result string."""
@@ -23,15 +26,15 @@ def webSearch(query: str):
     return tavily.search(query=query)
 
 
-llmModel = ChatOpenAI(model="gpt-5-nano")
-tools = [webSearch]
+llmModel = ChatOpenAI(model="gpt-5-nano", temperature=0)
+tools = [tavilySearch]
 # NOTE: create_agent() returns a runnable sequence like LCEL (LangChain Expression Language) using "|" pipe operator
 agent = create_agent(model=llmModel, tools=tools)
 
 
 def main():
     print("Hello from langchain-agents!")
-    query = "Capital of Spain?"
+    query = "Weather in Spain?"
     res = agent.invoke({
             "messages": HumanMessage(content=query)
     })
