@@ -37,11 +37,13 @@ agent = create_react_agent(
 )
 
 agentExecutor = AgentExecutor(agent=agent, tools=tools, verbose=True)
-chain = agentExecutor
+extractOutput = RunnableLambda(lambda x: x["output"]) # Only extract the "output" proprty from AgentExecutor response
+parseOutput = RunnableLambda(lambda x: outputParser.parse(x)) # Parse JSON string for "output" property into AgentResponse format
+chain = agentExecutor | extractOutput | parseOutput
 
 def main():
     print("Hello from langchain-agents!")
-    query = "What will be the weather in Barcelona, Spain in first week of January 2026?"
+    query = "What are the best veg food options in Barcelona?"
     res = chain.invoke(
         input={
             "input": query
