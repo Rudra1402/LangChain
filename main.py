@@ -21,6 +21,7 @@ load_dotenv()
 tavilySearch = TavilySearch()
 
 llm = ChatOpenAI(model="gpt-4")
+structuredLlmResponse = llm.with_structured_output(AgentResponse)
 tools = [tavilySearch]
 reactPrompt = hub.pull("hwchase17/react")
 
@@ -28,7 +29,7 @@ outputParser = PydanticOutputParser(pydantic_object=AgentResponse)
 reactPromptWithFormatInstructions = PromptTemplate(
     template=REACT_PROMPT_WITH_FORMAT_INSTRUCTIONS,
     input_variables=["input", "agent_scratchpad", "tool_names"]
-).partial(format_instructions=outputParser.get_format_instructions())
+).partial(format_instructions="")
 
 agent = create_react_agent(
     llm=llm,
@@ -38,8 +39,11 @@ agent = create_react_agent(
 
 agentExecutor = AgentExecutor(agent=agent, tools=tools, verbose=True)
 extractOutput = RunnableLambda(lambda x: x["output"]) # Only extract the "output" proprty from AgentExecutor response
-parseOutput = RunnableLambda(lambda x: outputParser.parse(x)) # Parse JSON string for "output" property into AgentResponse format
-chain = agentExecutor | extractOutput | parseOutput
+# parseOutput = RunnableLambda(lambda x: outputParser.parse(x)) # Parse JSON string for "output" property into AgentResponse format
+chain = agentExecutor | extractOutput | structuredLlmResponse
+
+# NOTE: In the above chain, we can either use "PydanticOutputParser.parse()" or "llm.with_structured_output()" to tell the LLM about the expected response format.
+# Latest and Greatest should be "llm.with_structured_output()", latest models support this and make it easier to use without additional prompting.
 
 def main():
     print("Hello from langchain-agents!")
