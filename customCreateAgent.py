@@ -47,16 +47,24 @@ if __name__ == "__main__":
     Begin!
 
     Question: {input}
-    Thought:
+    Thought: {agent_scratchpad}
     """
 
     prompt = PromptTemplate.from_template(template=template).partial(tools=render_text_description(tools), tool_names=",".join([t.name for t in tools]))
 
     llm = ChatOpenAI(temperature=0, stop=["/Observation", "Observation", "Observation:"])
 
-    agent = {"input": lambda x: x["input"]} | prompt | llm | ReActSingleInputOutputParser()
+    llmContext = []
 
-    agentStep: Union[AgentAction, AgentFinish] = agent.invoke({"input": "What is the text length of Oesophagous in characters?"})
+    agent = {
+        "input": lambda x: x["input"],
+        "agent_scratchpad": lambda x: x["agent_scratchpad"]
+    } | prompt | llm | ReActSingleInputOutputParser()
+
+    agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
+        "input": "What is the text length of Oesophagous in characters?",
+        "agent_scratchpad": llmContext
+    })
 
     print(agentStep)
 
