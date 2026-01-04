@@ -8,6 +8,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.tools.render import render_text_description
 from langchain_classic.agents.output_parsers import ReActSingleInputOutputParser
 from langchain_openai import ChatOpenAI
+from callbacks import AgentCallbackHandler
 
 load_dotenv()
 
@@ -53,7 +54,11 @@ if __name__ == "__main__":
 
     prompt = PromptTemplate.from_template(template=template).partial(tools=render_text_description(tools), tool_names=",".join([t.name for t in tools]))
 
-    llm = ChatOpenAI(temperature=0, stop=["/Observation", "Observation", "Observation:"])
+    llm = ChatOpenAI(
+        temperature=0,
+        stop=["/Observation", "Observation", "Observation:"],
+        callbacks=[AgentCallbackHandler()]
+    )
 
     llmContext = []
 
@@ -62,22 +67,21 @@ if __name__ == "__main__":
         "agent_scratchpad": lambda x: format_log_to_str(x["agent_scratchpad"])
     } | prompt | llm | ReActSingleInputOutputParser()
 
-    agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
-        "input": "What is the text length of Oesophagous in characters?",
-        "agent_scratchpad": llmContext
-    })
+    agentStep = ""
+    while not isinstance(agentStep, AgentFinish):
+        agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
+            "input": "What is the text length of Oesophagous in characters?",
+            "agent_scratchpad": llmContext
+        })
 
-    if isinstance(agentStep, AgentAction):
-        toolName = agentStep.tool
-        toolToUse = findToolFromList(tools, toolName)
-        toolInput = agentStep.tool_input
-        observation = toolToUse.func(toolInput)
-        llmContext.append((agentStep, str(observation)))
+        print("***** AgentStep *****\n", agentStep)
 
-    agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
-        "input": "What is the text length of Oesophagous in characters?",
-        "agent_scratchpad": llmContext
-    })
+        if isinstance(agentStep, AgentAction):
+            toolName = agentStep.tool
+            toolToUse = findToolFromList(tools, toolName)
+            toolInput = agentStep.tool_input
+            observation = toolToUse.func(toolInput)
+            llmContext.append((agentStep, str(observation)))
 
     if isinstance(agentStep, AgentFinish):
         print(agentStep.return_values)
