@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from typing import List, Union
 from langchain.tools import tool
 from langchain_classic.tools import Tool
+from langchain_classic.agents.format_scratchpad import format_log_to_str
 from langchain_core.agents import AgentAction, AgentFinish
 from langchain_core.prompts import PromptTemplate
 from langchain_core.tools.render import render_text_description
@@ -58,7 +59,7 @@ if __name__ == "__main__":
 
     agent = {
         "input": lambda x: x["input"],
-        "agent_scratchpad": lambda x: x["agent_scratchpad"]
+        "agent_scratchpad": lambda x: format_log_to_str(x["agent_scratchpad"])
     } | prompt | llm | ReActSingleInputOutputParser()
 
     agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
@@ -66,11 +67,17 @@ if __name__ == "__main__":
         "agent_scratchpad": llmContext
     })
 
-    print(agentStep)
-
     if isinstance(agentStep, AgentAction):
         toolName = agentStep.tool
         toolToUse = findToolFromList(tools, toolName)
         toolInput = agentStep.tool_input
         observation = toolToUse.func(toolInput)
-        print(observation)
+        llmContext.append((agentStep, str(observation)))
+
+    agentStep: Union[AgentAction, AgentFinish] = agent.invoke({
+        "input": "What is the text length of Oesophagous in characters?",
+        "agent_scratchpad": llmContext
+    })
+
+    if isinstance(agentStep, AgentFinish):
+        print(agentStep.return_values)
