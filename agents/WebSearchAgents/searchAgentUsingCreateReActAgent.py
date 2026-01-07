@@ -13,8 +13,8 @@ from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_tavily import TavilySearch
 
-from prompt import REACT_PROMPT_WITH_FORMAT_INSTRUCTIONS
-from schemas import AgentResponse
+from utils.prompt import REACT_PROMPT_WITH_FORMAT_INSTRUCTIONS
+from utils.schemas import AgentResponse
 
 load_dotenv()
 

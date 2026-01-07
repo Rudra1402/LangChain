@@ -5,7 +5,7 @@ from langchain_classic.tools import BaseTool
 from langchain.messages import HumanMessage, ToolMessage
 from langchain_tavily import TavilySearch
 from langchain_openai import ChatOpenAI
-from callbacks import AgentCallbackHandler
+from utils.callbacks import AgentCallbackHandler
 
 load_dotenv()
 

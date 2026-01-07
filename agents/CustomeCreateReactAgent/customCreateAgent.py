@@ -8,7 +8,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_core.tools.render import render_text_description
 from langchain_classic.agents.output_parsers import ReActSingleInputOutputParser
 from langchain_openai import ChatOpenAI
-from callbacks import AgentCallbackHandler
+from utils.callbacks import AgentCallbackHandler
 
 load_dotenv()
 
