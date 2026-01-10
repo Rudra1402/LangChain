@@ -1,0 +1,227 @@
+I’ve lately been very interested in trading, especially forex trading. For those who don’t know forex, it is defined by Wikipedia as the foreign exchange market, a global decentralized or over-the-counter market for the trading of currencies. People who trade forex make money off of small differences in currency values.
+
+For over a year, I’ve had one of my friends beg me to learn how to trade, I’ve always thought it was some kind of a scam or a ponzi scheme or something; however, a few google searches and turns out it was none of that, on the contrary actually, it sounded so cool and empowering, so much that a few weeks after that, I actually gave in and deposited 150$ dollars into a live account. Of course I had experimented with paper trading at that point but I’ve never had a formal training or any courses whatsoever. Against all my fears and any common sense, I somehow managed to turn these 150 to 600 in less than two weeks. I was relying on a strategy called: “Flipping through timeframes of the same currency pair until they seem like they all indicate the market is going in a certain direction,” No stop losses, No take profits, I just stay there until I feel like that’s enough profit/loss.
+
+Two weeks had passed until one day, I noticed gold (XAUUSD) was at an all time highest (all time frames), back then that’s all it took for me to enter a short trade. “It is in an all time highest, there is only one way it can go”, that’s what I thought, and as dumb as it may sound, it actually worked and the 600 turned into 1,600. I’ve worked as a full stack web developer for almost two years now, and I’ve never made this amount of money this easily and this fast. My mind was racing, “Oh my god! If I continue down that road, how much will it take me to buy a nice car and maybe an apartment, a fuckin year? less?”, my heart was pounding with excitement as I looked in disbelief at my trading account’s balance. Rushed with adrenaline I decided I wanted more of the same, gold is still near the all time highest, it’ll certainly keep going down some more before bouncing back up. I fill in the orders, and I sit and wait. The trades were losing. “Mmm maybe it’s a correction, it’ll go down certainly, let me sell the rip” and I sold again. All losing. I’m starting to freak out, “okay I’m sure it’ll go down so there is no need to panic, that’s why it’s good to have a big capital, I sure can withstand this small pullback”. Also btw the small pullback in question was like a -700$ loss. Long story short, I got margined; lost all I had in that account. Honestly, I can’t even say I was sad or angry or anything at all, It was just hard to process what just happened. I’ve made the biggest amount of money in my life and lost it within one freakin hour. It was too much to take in.
+
+A few days later, I came back to my senses and realized that I was trading in a live account with no strategy, no knowledge of the market, no understanding of how global news affect the market and why. It’s almost a miracle I was able to make that much money without proper learning. That’s when I decided that this is exactly what I want to do: learn forex day trading properly. In the past few days I’ve been searching for a holistic roadmap for day trading forex but apparently there are none that are detailed, comprehensive, and free. So, I decided I’ll make one using AI. I used Claude 3.7 sonnet to craft the perfect roadmap, taking into account all the intricate as well as subtle details, and over the following few months, I’ll take you on a journey through everything I learn, and I’ll attach the resources that I’m using, and tips and tricks that I learn along the way.
+
+I am doing this series of posts for me before anything else, to ensure I commit and to consolidate what I learn; However, I’m hoping It’ll benefit others looking to start their journey in trading even a little bit. Let’s get started!
+
+Week 1–2: Forex Market Basics
+Forex Market Structure
+1.1 What is the foreign exchange market
+
+Forex trading, or foreign exchange trading, is the process of buying and selling currencies on the global market. Unlike stock trading, which involves shares of companies, forex trading focuses on exchanging one currency for another.
+
+This happens in pairs, such as EUR/USD, where euros are traded against US dollars. The value of these currencies fluctuates based on factors like interest rates, economic data, and geopolitical events.
+
+1.2 Decentralized nature of forex trading
+
+Forex trading occurs over the counter (OTC), meaning there’s no central exchange. Transactions are conducted electronically between parties worldwide.
+
+1.3 24-hour market and trading sessions (Asian, European, North American)
+
+Sydney/Asian Session (10 PM — 7 AM GMT)
+
+First to open after the weekend, setting the tone for the week
+Typically has lower volatility compared to other sessions
+Most active currency pairs: AUD/USD, NZD/USD, and USD/JPY
+The Tokyo portion (12 AM — 9 AM GMT) sees significant trading of the Japanese yen
+European/London Session (8 AM — 5 PM GMT)
+
+London is the largest forex trading center globally, accounting for about 38% of global trading
+Known for high liquidity and volatility
+Most active pairs: EUR/USD, GBP/USD, USD/CHF
+The Bank of England’s influence makes this session important for trend formation
+North American/New York Session (1 PM — 10 PM GMT)
+
+Second-largest forex market in the world
+The USD is involved in 88% of all forex trades, making this session highly influential
+Most active pairs: USD/CAD, EUR/USD, GBP/USD
+US economic data releases during this session can create significant market movements
+1.4 Session Overlaps
+
+The most active trading periods occur when sessions overlap:
+
+London-New York Overlap (1 PM — 5 PM GMT): Highest trading volumes and volatility, making it ideal for day traders and scalpers
+Tokyo-London Overlap: Good for trading Asian and European currencies
+Sydney-Tokyo Overlap: Less volatile but offers early opportunities
+Most traders focus on one session rather than attempting to trade all 24 hours, with many preferring the overlaps for their increased activity and tighter spreads
+
+1.5 Major, minor, and exotic currency pairs
+
+There are seven Major currency pairs:
+
+EUR/USD — Euro/US Dollar 🇪🇺/🇺🇸
+USD/JPY — US Dollar/Japanese Yen 🇺🇸/🇯🇵
+GBP/USD — British Pound/US Dollar 🇬🇧/🇺🇸
+AUD/USD — Australian Dollar/US Dollar 🇦🇺/🇺🇸
+USD/CHF — US Dollar/Swiss Franc 🇺🇸/🇨🇭
+USD/CAD — US Dollar/Canadian Dollar 🇺🇸/🇨🇦
+NZD/USD — New Zealand Dollar/US Dollar 🇳🇿/🇺🇸
+Minor currency pairs:
+
+Minor currency pairs, also known as cross currency pairs, do not involve the US dollar. They pair two other major currencies or a major currency with a currency from a smaller or emerging economy.
+
+Here is a list of minor currency pairs:
+
+EUR/GBP — Euro/British Pound 🇪🇺/🇬🇧
+EUR/AUD — Euro/Australian Dollar 🇪🇺/🇦🇺
+GBP/JPY — British Pound/Japanese Yen 🇬🇧/🇯🇵
+AUD/JPY — Australian Dollar/Japanese Yen 🇦🇺/🇯🇵
+EUR/CAD — Euro/Canadian Dollar 🇪🇺/🇨🇦
+NZD/JPY — New Zealand Dollar/Japanese Yen 🇳🇿/🇯🇵
+GBP/AUD — British Pound/Australian Dollar 🇬🇧/🇦🇺
+Exotic currency pairs:
+
+Exotic currency pairs involve one major currency and one currency from a smaller or less commonly traded economy.
+
+These pairs typically have lower liquidity and higher spreads, making them riskier for traders.
+
+USD/TRY — US Dollar/Turkish Lira 🇺🇸/🇹🇷
+EUR/TRY — Euro/Turkish Lira 🇪🇺/🇹🇷
+USD/SGD — US Dollar/Singapore Dollar 🇺🇸/🇸🇬
+EUR/THB — Euro/Thai Baht 🇪🇺/🇹🇭
+USD/ZAR — US Dollar/South African Rand 🇺🇸/🇿🇦
+USD/HKD — US Dollar/Hong Kong Dollar 🇺🇸/🇭🇰
+USD/PLN — US Dollar/Polish Zloty 🇺🇸/🇵🇱
+1.6 Market participants (banks, hedge funds, retail traders, corporations)
+
+Commercial and Investment Banks:
+
+Account for approximately 80% of forex trading volume
+Major players: Deutsche Bank, JPMorgan, Citi, HSBC, Bank of America, Goldman Sachs
+Facilitate transactions for clients and conduct proprietary trading
+Central Banks:
+
+Set monetary policy and influence currency rates
+Conduct interventions to stabilize or increase economic competitiveness
+Provide liquidity to the market
+Hedge Funds and Investment Managers:
+
+Second-largest group of market participants
+Trade currencies for large accounts like pension funds and endowments
+Execute speculative trades as part of investment strategies
+Corporations and Commercial Companies:
+
+Use forex for importing/exporting goods globally
+Exchange currencies for international payments
+Hedge against currency risk in business operations
+Retail Traders:
+
+Growing segment though still small compared to institutional volume
+Trade based on fundamentals and technical factors
+1.7 Market size and daily trading volume
+
+Global daily forex trading volume: approximately $7.5 trillion (as of 2022 Triennial Central Bank survey)
+Up from $6.6 trillion in 2019, showing consistent growth
+US dollar is involved in 88% of all forex trades
+London is the largest forex trading center, followed by New York, Singapore, Hong Kong, and Tokyo
+North American forex volume was $1,196.4 billion in October 2024, a 17.2% increase year-over-year
+Most volume occurs during session overlaps, particularly London-New York
+2. Currency Basics
+
+2.1 Base and quote currencies
+
+When we talk about currency pairs, we’re always looking at a relationship between two currencies. The base currency comes first in the pair and represents what you’re buying or selling, while the quote currency comes second and tells you how much you need to pay for one unit of the base currency. For instance, in EUR/USD, the euro is the base and the dollar is the quote.
+
+2.2 Bid/ask spreads in forex
+
+The bid/ask spread represents the actual cost of trading. The bid price is what you’ll receive when selling a currency pair, while the ask price is what you’ll pay when buying it. The difference between these two prices is the spread (Ask — Bid = Spread), essentially the broker’s fee for executing your trade. For example, if EUR/USD is quoted at 1.12502/1.12506, the spread is 4 points, which is quite tight!
+
+2.3 Pips and pipettes explanation
+
+A pip, short for “percentage in point” or “price interest point,” is the smallest price movement in the currency market. It typically represents a one-digit change in the fourth decimal place of most currency pairs. For example, if the EUR/USD pair moves from 1.1050 to 1.1051, it has moved by one pip. For currency pairs involving the Japanese yen, a pip is the movement in the second decimal place.
+
+The value of a pip depends on the currency pair being traded, the exchange rate, and the trade size. For standard lots (100,000 units of the base currency), a pip is usually worth $10 for most pairs. For mini lots (10,000 units), it’s worth $1, and for micro lots (1,000 units), it’s worth $0.10. Calculating pip value involves considering the quote currency and any conversions needed for cross-currency pairs.
+
+While a pip is the standard measure of price movement, a pipette represents a fractional pip. It is equivalent to one-tenth of a pip and is denoted by an extra decimal place. For instance, if EUR/USD moves from 1.10500 to 1.10501, it has moved by one pipette. Pipettes allow for more precise pricing and tighter spreads, particularly useful in high-frequency trading strategies.
+
+2.4 Calculating pip value in different pairs
+
+Consider a trader who buys the EUR/USD pair at 1.1050 and sells it at 1.1070. The 20-pip movement translates to a profit if the position size is significant. On the other hand, if the USD/JPY moves from 110.25 to 110.35, a 10-pip movement is recorded, reflecting the second decimal place standard for yen pairs. Understanding these movements helps traders better manage their positions and expectations.
+
+2.5 Direct and indirect quotes
+
+The concepts of direct and indirect quotes relate to how we view currency pairs from different perspectives. A direct quote shows how much domestic currency is needed to buy one unit of foreign currency, while an indirect quote shows how much foreign currency you can get for one unit of domestic currency. Your perspective depends on where you’re trading from, which adds another fascinating layer to the global nature of forex!
+
+3 Trading Mechanics
+
+3.1 Lot sizes (standard, mini, micro)
+
+In forex trading, lot sizes represent standardized units of currency that you can trade. These units help manage your exposure in the market and are crucial for risk management.
+
+Standard Lot: This is the largest common unit size, equal to 100,000 units of the base currency. For example, if trading EUR/USD at 1.3000, one standard lot would require $130,000 to control €100,000. Each pip movement in a standard lot typically equals $10 for most currency pairs
+
+Mini Lot: Equal to 10,000 units of the base currency, or one-tenth of a standard lot. Using the same EUR/USD example at 1.3000, a mini lot would require $13,000 to control €10,000. Each pip movement is worth approximately $1.
+
+Micro Lot: Equal to 1,000 units of the base currency, or one-tenth of a mini lot. For EUR/USD at 1.3000, a micro lot would require $1,300 to control €1,000. Each pip is worth about $0.10
+
+Some brokers also offer Nano Lots (100 units), though these are less common and typically used by beginners or for testing strategies with minimal risk
+
+3.2 Margin and leverage in forex
+
+Margin and leverage are fundamental concepts that allow traders to control larger positions with relatively small capital.
+
+Margin is the amount of money required in your account to open and maintain a position. It functions as a good-faith deposit or collateral. For example, a 2% margin requirement means you need to deposit $2,000 to control a $100,000 position.
+
+Leverage is the ratio between the total position size and the margin required. For instance, 50:1 leverage means you can control $50 worth of currency for every $1 in your account. Common leverage ratios include:
+
+50:1 (2% margin)
+100:1 (1% margin)
+200:1 (0.5% margin)
+While leverage can magnify profits, it equally magnifies losses. If a position moves against you, losses can accumulate quickly and may exceed your initial deposit if your broker doesn’t offer negative balance protection
+
+3.3 Calculating position sizes
+
+Position sizing is critical for risk management and determines how many units of currency you should trade based on your risk tolerance.
+
+The basic formula for calculating position size is:
+
+size = ((Account value × Risk percentage) ÷ Pips at risk) ÷ Pip value per standard lot
+
+For example, if you have a $10,000 account and are willing to risk 2% on a trade with a 50-pip stop loss, and the pip value per standard lot is $10:
+
+((10,000 × 0.02) ÷ 50) ÷ 10 = 0.4 standard lots
+
+This equals 40,000 units of currency or 4 mini lots.
+
+Proper position sizing ensures that:
+
+You don’t risk more than a predetermined percentage of your account on any single trade
+Your position size is appropriate for your stop loss distance
+You maintain consistent risk across different currency pairs
+3.4 Long and short positions
+
+In forex trading, you can profit from both rising and falling markets through long and short positions.
+
+Long Position (Going Long): When you buy a currency pair expecting its price to rise. For example, if you buy EUR/USD, you’re buying euros while simultaneously selling dollars, anticipating that the euro will strengthen against the dollar.
+
+Short Position (Going Short): When you sell a currency pair expecting its price to fall. For example, selling EUR/USD means you’re selling euros and buying dollars, anticipating that the euro will weaken against the dollar
+
+3.5 Understanding rollover and swap rates
+
+When you hold a position overnight (past 5 PM EST), a rollover occurs, which may result in either a credit or debit to your account based on interest rate differentials.
+
+Rollover is the process of moving an open position from one trading day to another. During this process, a swap rate is applied.
+
+Swap Rate is the interest rate differential between the two currencies in the pair. For example, if you buy EUR/USD and the interest rate for EUR is 0.5% while USD is 2%, the swap would be -1.5% (0.5% — 2%)
+
+Key points about rollovers:
+
+If you buy a currency with a higher interest rate than the one you’re selling, you’ll receive a positive swap (credit)
+If you buy a currency with a lower interest rate than the one you’re selling, you’ll pay a negative swap (debit)
+Wednesday rollovers are typically triple the normal rate to account for the weekend
+3.6 Trading costs specific to forex
+
+Several costs are associated with forex trading that can impact your overall profitability:
+
+Spreads: The difference between the bid and ask price. This is the primary cost for most forex traders and can be fixed or variable depending on your broker and account type.
+Commissions: Some brokers, particularly those offering ECN or “raw spread” accounts, charge a fixed commission per trade instead of or in addition to the spread.
+Rollover/Financing Charges: As mentioned above, these are applied when positions are held overnight.
+Currency Conversion Fees: If you trade in a currency different from your account’s base currency, you may incur conversion fees, typically around 0.5%.
+Inactivity Fees: Some brokers charge fees if your account remains inactive for an extended period.
+Understanding these costs is essential for calculating your potential profit or loss and developing effective trading strategies.
+
+..and That is all for week 1. Such interesting concepts! I think we’re still scratching the surface but I’m excited for what’s to come. See y’all in part 2. I’ll put the link to it down here when it’s published.
