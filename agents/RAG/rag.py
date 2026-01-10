@@ -1,9 +1,14 @@
 import os
 from dotenv import load_dotenv
+from operator import itemgetter
+from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.runnables import RunnablePassthrough
 from langchain_core.messages import HumanMessage
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 from langchain_pinecone import PineconeVectorStore
+
+load_dotenv()
 
 embeddings = OpenAIEmbeddings()
 llm = ChatOpenAI()
@@ -36,8 +41,28 @@ def retrieveWithoutLCEL(query:str):
     llmRes = llm.invoke(messages)
     return llmRes.content
 
+def runnableChainLCEL():
+    chain = (
+        RunnablePassthrough.assign(
+            context = (lambda x: x["question"]) |
+                retriever |
+                formatDocs
+        ) |
+        promptTemplate |
+        llm |
+        StrOutputParser()
+    )
+    return chain
+
 if __name__ == "__main__":
     print("RAG In Process...")
     query = "Are there any stocks or ETFs listed? If yes, list them!"
-    answer = retrieveWithoutLCEL(query)
+
+    # [ Without LCEL ]
+    # answer = retrieveWithoutLCEL(query)
+
+    # [ With LCEL ]
+    chain = runnableChainLCEL()
+    answer = chain.invoke({"question": query})
+    
     print(answer)
