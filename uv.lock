@@ -520,6 +520,7 @@ dependencies = [
     { name = "langchain-openai" },
     { name = "langchain-pinecone" },
     { name = "langchain-tavily" },
+    { name = "langgraph" },
     { name = "python-dotenv" },
     { name = "tavily-python" },
 ]
@@ -534,6 +535,7 @@ requires-dist = [
     { name = "langchain-openai", specifier = ">=1.1.6" },
     { name = "langchain-pinecone", specifier = ">=0.2.13" },
     { name = "langchain-tavily", specifier = ">=0.2.15" },
+    { name = "langgraph", specifier = ">=1.0.5" },
     { name = "python-dotenv", specifier = ">=1.2.1" },
     { name = "tavily-python", specifier = ">=0.7.17" },
 ]
