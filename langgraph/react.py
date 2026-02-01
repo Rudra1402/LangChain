@@ -12,6 +12,7 @@ def addServiceTax(price:float) -> float:
     :param price: number to add 10% tax to
     :returns: number with 10% tax added
     """
+    print("Calling Tool - addServiceTax")
     percent10 = price / 10
     finalPrice = percent10 + price
     finalPrice = f"{finalPrice:.2f}"
