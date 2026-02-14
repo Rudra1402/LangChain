@@ -15,7 +15,7 @@ def addServiceTax(price:float) -> float:
     print("Calling Tool - addServiceTax")
     percent10 = price / 10
     finalPrice = percent10 + price
-    finalPrice = f"{finalPrice:.2f}"
+    finalPrice = round(finalPrice, 2)
 
     return finalPrice
 
