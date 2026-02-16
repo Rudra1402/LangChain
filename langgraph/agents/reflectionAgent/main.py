@@ -4,11 +4,14 @@ from langchain_core.messages import BaseMessage, HumanMessage
 from langgraph.graph import StateGraph, END
 from langgraph.graph.message import add_messages
 from chains import generationChain, reflectionChain
+from agentTrackerUtil import updateTracker, agentTracker
 
 load_dotenv()
 
+START = "start"
 REFLECT = "reflect"
 GENERATE = "generate"
+CONDITIONAL_EDGE = "conditional_edge"
 LAST = -1
 
 class MessageGraph(TypedDict):
@@ -16,18 +19,25 @@ class MessageGraph(TypedDict):
 
 
 def shouldReflect(state: MessageGraph):
+    conditionalEdgeResponse = REFLECT
     if len(state["messages"]) > 6:
-        return END
-    return REFLECT
+        conditionalEdgeResponse = END
+    updateTracker(f"{CONDITIONAL_EDGE}-{conditionalEdgeResponse}", state["messages"])
+    return conditionalEdgeResponse
 
 
 def generationNode(state: MessageGraph):
-    return {"messages": [generationChain.invoke({"messages": state["messages"]})]}
+    latestResponse = {"messages": [generationChain.invoke({"messages": state["messages"]})]}
+    updateTracker(GENERATE, state["messages"]+[latestResponse["messages"][0]])
+    return latestResponse
 
 
 def reflectionNode(state: MessageGraph):
     reflectionMsg = reflectionChain.invoke({"messages": state["messages"]})
-    return {"messages": [HumanMessage(content=reflectionMsg.content)]}
+    # Converting AI Message into Human Message to replicate human critique involvement
+    latestResponse = {"messages": [HumanMessage(content=reflectionMsg.content)]}
+    updateTracker(REFLECT, state["messages"]+[latestResponse["messages"][0]])
+    return latestResponse
 
 
 builder = StateGraph(state_schema=MessageGraph)
@@ -54,5 +64,12 @@ if __name__ == "__main__":
 
         """
     )
+    updateTracker(START, [inputs])
     graphRes = graph.invoke({"messages": [inputs]})
-    print(graphRes)
+    for trace in agentTracker:
+        print("----------")
+        print("Node Name:", trace.get("node"))
+        print("Decision Node:", trace.get("decisionNode"))
+        print("Last Message Type:", trace.get("lastMessageType"))
+    print("----------")
+    print("Content:", graphRes["messages"][-1].content)
