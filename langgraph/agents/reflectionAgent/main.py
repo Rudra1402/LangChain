@@ -72,4 +72,4 @@ if __name__ == "__main__":
         print("Decision Node:", trace.get("decisionNode"))
         print("Last Message Type:", trace.get("lastMessageType"))
     print("----------")
-    print("Content:", graphRes["messages"][-1].content, graphRes["messages"])
+    print("Content:", graphRes["messages"][-1].content)
