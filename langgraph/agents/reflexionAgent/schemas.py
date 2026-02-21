@@ -12,3 +12,8 @@ class ResponseLLM(BaseModel):
     answer:str = Field(description="~250 word detailed answer to the question")
     reflection:Reflection = Field(description="Your reflection on the initial answer")
     searchQueries:List[str] = Field(description="1-3 earch queries for researching improvements to address the critique of your current answer")
+
+class ResponseRevisedLLM(ResponseLLM):
+    """Revise your original answer to your question."""
+
+    references:List[str] = Field(description="Citations motivating your updated answer")
