@@ -9,6 +9,8 @@ from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from schemas import ResponseLLM, ResponseRevisedLLM
 
+load_dotenv()
+
 llm = ChatOpenAI(model="gpt-4-turbo-preview")
 parserJson = JsonOutputToolsParser(return_id=True)
 parserPydantic = PydanticToolsParser(tools=[ResponseLLM])
