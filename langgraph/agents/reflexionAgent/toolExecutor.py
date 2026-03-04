@@ -1,6 +1,6 @@
 from dotenv import load_dotenv
 from langchain_tavily import TavilySearch
-from schemas import ResponseLLM, ResponseRevisedLLM
+from .schemas import ResponseLLM, ResponseRevisedLLM
 from langchain_core.tools import StructuredTool
 from langgraph.prebuilt import ToolNode
 from typing import List
