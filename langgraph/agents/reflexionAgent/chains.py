@@ -7,7 +7,7 @@ from langchain_core.output_parsers.openai_tools import (
 )
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from schemas import ResponseLLM, ResponseRevisedLLM
+from .schemas import ResponseLLM, ResponseRevisedLLM
 
 load_dotenv()
 
